@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>上帝之眼編織課程｜樂齡・失智・親子手作教案</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap');
+:root{--bg:#EFE6D6;--bg-soft:#F7F1E6;--ink:#43382E;--ink-soft:#6B5D4F;--clay:#C77B57;--clay-deep:#A85F3E;--sage:#7C9070;--teal:#5E8B86;--gold:#D8A85B;--line:#D9C9AE;--shadow:rgba(67,56,46,.10);}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;}
+body{font-family:'Noto Serif TC',serif;background:radial-gradient(140% 120% at 50% 0%,#F4ECDD 0%,var(--bg) 55%,#E7DAC4 100%);color:var(--ink);overflow:hidden;}
+#stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;}
+.slide{position:absolute;width:100%;height:100%;opacity:0;visibility:hidden;transition:opacity .55s ease;display:flex;align-items:center;justify-content:center;padding:clamp(20px,4vmin,56px);}
+.slide.active{opacity:1;visibility:visible;}
+.card{width:min(1180px,96%);max-height:94%;background:var(--bg-soft);border-radius:26px;box-shadow:0 30px 60px -24px var(--shadow),0 0 0 1px rgba(217,201,174,.6);overflow:hidden;display:grid;grid-template-columns:1.05fr 1fr;}
+.card.single{grid-template-columns:1fr;}
+.panel{padding:clamp(22px,3.4vmin,46px);overflow:auto;display:flex;flex-direction:column;justify-content:center;}
+.panel.art{background:linear-gradient(150deg,#F2E9D8,#EADBBE);align-items:center;}
+.eyebrow{font-family:'Noto Sans TC',sans-serif;letter-spacing:.28em;font-size:clamp(11px,1.5vmin,14px);font-weight:700;color:var(--teal);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--clay);border-radius:2px;}
+h1{font-size:clamp(30px,5.4vmin,54px);line-height:1.18;font-weight:900;color:var(--clay-deep);margin-bottom:10px;letter-spacing:.01em;}
+h2{font-size:clamp(24px,3.8vmin,40px);line-height:1.28;font-weight:900;color:var(--ink);margin-bottom:16px;}
+.accent{color:var(--clay);}
+p,li{font-size:clamp(15px,2.1vmin,20px);line-height:1.85;color:var(--ink);}
+.lead{font-size:clamp(16px,2.3vmin,22px);color:var(--ink-soft);margin-bottom:6px;}
+.divider{height:1px;background:var(--line);margin:18px 0;border:0;}
+ul.dots{list-style:none;}
+ul.dots li{position:relative;padding-left:26px;margin-bottom:13px;}
+ul.dots li::before{content:"";position:absolute;left:0;top:.7em;width:9px;height:9px;border-radius:50%;background:var(--gold);}
+.tag{display:inline-block;font-family:'Noto Sans TC',sans-serif;font-size:clamp(12px,1.7vmin,15px);font-weight:700;padding:6px 15px;border-radius:30px;margin:4px 6px 4px 0;background:#fff;color:var(--clay-deep);border:1px solid var(--line);}
+.tag.fill{background:var(--sage);color:#fff;border-color:transparent;}
+.tag.clay{background:var(--clay);color:#fff;border-color:transparent;}
+.tag.teal{background:var(--teal);color:#fff;border-color:transparent;}
+.box{background:#fff;border:1px solid var(--line);border-radius:16px;padding:clamp(13px,2vmin,18px);margin-bottom:12px;box-shadow:0 8px 20px -16px var(--shadow);}
+.box .h{font-weight:900;font-size:clamp(16px,2.3vmin,21px);color:var(--clay-deep);margin-bottom:4px;display:flex;align-items:center;gap:9px;}
+.box .h .ic{font-size:1.3em;}
+.box p{font-size:clamp(14px,2vmin,19px);color:var(--ink);}
+.who{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:6px 0;}
+.who .c{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 10px;text-align:center;}
+.who .c .em{font-size:clamp(30px,5vmin,42px);}
+.who .c .t{font-weight:900;font-size:clamp(15px,2.1vmin,19px);color:var(--clay-deep);margin:6px 0 4px;}
+.who .c .d{font-size:clamp(12px,1.7vmin,15px);color:var(--ink-soft);line-height:1.6;}
+.note{background:linear-gradient(180deg,#FBF4E4,#F6ECD6);border-left:5px solid var(--gold);border-radius:12px;padding:14px 16px;margin-top:14px;}
+.note .nh{font-family:'Noto Sans TC',sans-serif;font-weight:700;color:var(--clay-deep);font-size:clamp(13px,1.8vmin,16px);margin-bottom:4px;display:block;}
+.note p{font-size:clamp(14px,2vmin,18px);}
+.step{display:flex;gap:14px;margin-bottom:16px;align-items:flex-start;}
+.step .n{flex:0 0 auto;width:clamp(34px,5vmin,44px);height:clamp(34px,5vmin,44px);background:var(--clay);color:#fff;border-radius:50%;font-family:'Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(16px,2.4vmin,22px);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 14px -6px var(--clay-deep);}
+.step .tx .st{font-weight:900;font-size:clamp(16px,2.3vmin,21px);margin-bottom:2px;}
+.step .tx p{font-size:clamp(14px,2vmin,18px);color:var(--ink-soft);}
+.mantra{text-align:center;background:#fff;border:2px dashed var(--clay);border-radius:16px;padding:18px;margin:14px 0 4px;}
+.mantra .m{font-size:clamp(20px,3.4vmin,30px);font-weight:900;color:var(--clay-deep);letter-spacing:.04em;}
+.mantra .sub{font-size:clamp(13px,1.9vmin,16px);color:var(--ink-soft);margin-top:6px;}
+.video{width:100%;max-width:560px;aspect-ratio:16/9;border-radius:16px;overflow:hidden;box-shadow:0 18px 40px -20px var(--shadow);background:#000;}
+.video iframe{width:100%;height:100%;border:0;display:block;}
+.cover-eye{width:clamp(180px,34vmin,340px);height:auto;}
+#nav{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);display:flex;align-items:center;gap:14px;z-index:30;background:rgba(247,241,230,.92);backdrop-filter:blur(8px);padding:8px 10px;border-radius:40px;box-shadow:0 12px 30px -14px var(--shadow),0 0 0 1px var(--line);}
+#nav button{font-family:'Noto Sans TC',sans-serif;font-weight:700;font-size:clamp(14px,2vmin,17px);border:0;border-radius:30px;padding:10px 18px;cursor:pointer;background:var(--clay);color:#fff;transition:transform .15s,background .2s;}
+#nav button:hover{background:var(--clay-deep);}
+#nav button:active{transform:scale(.95);}
+#nav button:disabled{background:var(--line);color:#fff;cursor:default;}
+#nav .cnt{font-family:'Noto Sans TC',sans-serif;font-weight:700;color:var(--ink-soft);min-width:62px;text-align:center;font-size:clamp(13px,1.9vmin,16px);}
+#dots{position:fixed;left:50%;bottom:66px;transform:translateX(-50%);display:flex;gap:7px;z-index:30;flex-wrap:wrap;max-width:90vw;justify-content:center;}
+#dots i{width:8px;height:8px;border-radius:50%;background:var(--line);transition:.25s;cursor:pointer;}
+#dots i.on{background:var(--clay);transform:scale(1.35);}
+.kbd-hint{position:fixed;right:16px;bottom:20px;font-family:'Noto Sans TC',sans-serif;font-size:12px;color:var(--ink-soft);opacity:.6;z-index:30;}
+@media (max-aspect-ratio:1/1){.card{grid-template-columns:1fr !important;max-height:96%;}.panel.art{order:-1;min-height:34%;padding:18px;}.cover-eye{width:clamp(150px,42vmin,260px);}.who{grid-template-columns:1fr 1fr;}.kbd-hint{display:none;}}
+@media (max-width:560px){.panel{padding:20px 18px;}.who{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div id="stage">
+
+<section class="slide active">
+  <div class="card single">
+    <div class="panel" style="align-items:center;text-align:center;">
+      <svg class="cover-eye" viewBox="0 0 200 200" aria-label="上帝之眼">
+        <g transform="translate(100,100)">
+          <rect x="-95" y="-6" width="190" height="12" rx="6" fill="#A8744B"/>
+          <rect x="-6" y="-95" width="12" height="190" rx="6" fill="#A8744B"/>
+          <g fill="none" stroke-width="9" stroke-linejoin="round">
+            <polygon points="0,-78 78,0 0,78 -78,0" stroke="#5E8B86"/>
+            <polygon points="0,-64 64,0 0,64 -64,0" stroke="#D8A85B"/>
+            <polygon points="0,-50 50,0 0,50 -50,0" stroke="#C77B57"/>
+            <polygon points="0,-36 36,0 0,36 -36,0" stroke="#7C9070"/>
+            <polygon points="0,-22 22,0 0,22 -22,0" stroke="#D8A85B"/>
+          </g>
+          <circle r="8" fill="#A85F3E"/>
+        </g>
+      </svg>
+      <div class="eyebrow" style="justify-content:center;margin-top:18px;">Ojo de Dios · 神之眼</div>
+      <h1>上帝之眼<br>編織課程</h1>
+      <p class="lead">樂齡 ・ 失智 ・ 親子手作教案</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="card">
+    <div class="panel">
+      <div class="eyebrow">為什麼編織</div>
+      <h2>一條線，<span class="accent">手在動、心也靜</span></h2>
+      <p class="lead">一條毛線、兩根木棒，繞著繞著，身心都跟著安定下來。</p>
+      <div class="divider"></div>
+      <div class="box"><div class="h"><span class="ic">🖐️</span>手指與專注</div><p>纏線需要手眼協調，活化手部小肌肉，也溫和訓練專注力。</p></div>
+      <div class="box"><div class="h"><span class="ic">🧠</span>動腦不退化</div><p>數圈數、換顏色、記步驟，是輕鬆的認知練習。</p></div>
+      <div class="box"><div class="h"><span class="ic">🌿</span>安定與成就</div><p>重複動作能舒緩焦慮；完成作品帶來看得見的成就感。</p></div>
+    </div>
+    <div class="panel art">
+      <svg viewBox="0 0 240 240" width="78%" style="max-width:320px">
+        <g transform="translate(120,120)">
+          <circle r="100" fill="#fff" opacity=".5"/>
+          <g fill="none" stroke-width="10" stroke-linejoin="round">
+            <polygon points="0,-82 82,0 0,82 -82,0" stroke="#5E8B86"/>
+            <polygon points="0,-62 62,0 0,62 -62,0" stroke="#C77B57"/>
+            <polygon points="0,-42 42,0 0,42 -42,0" stroke="#D8A85B"/>
+            <polygon points="0,-22 22,0 0,22 -22,0" stroke="#7C9070"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="card single">
+    <div class="panel">
+      <div class="eyebrow">適合對象</div>
+      <h2>樂齡、失智長輩與孩子，<span class="accent">都很適合</span></h2>
+      <p class="lead">動作單純、可重複，難易能依每個人的能力調整。</p>
+      <div class="who">
+        <div class="c"><div class="em">👵</div><div class="t">樂齡長輩</div><div class="d">手部復健、預防退化、增加社交互動</div></div>
+        <div class="c"><div class="em">🧓</div><div class="t">失智長輩</div><div class="d">纏繞屬「身體記憶」，安心又好上手</div></div>
+        <div class="c"><div class="em">🧒</div><div class="t">孩童</div><div class="d">練專注與小肌肉，認識色彩與文化</div></div>
+      </div>
+      <div class="note"><span class="nh">為什麼失智長輩也適合</span><p>失智長輩擅長「程序記憶」——身體會的事（如編織、騎車）退化得慢。所以纏繞動作比抽象的記憶任務更容易完成，挫折低、更願意投入。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="card">
+    <div class="panel">
+      <div class="eyebrow">歷史由來</div>
+      <h2>來自<span class="accent">中南美洲</span>的祈福工藝</h2>
+      <p class="lead">Ojo de Dios（西語「神之眼」）源自墨西哥的<strong>惠喬爾人（Huichol）</strong>與玻利維亞原住民，是祈福與守護的傳統手藝。</p>
+      <div class="divider"></div>
+      <ul class="dots">
+        <li>以兩根木棒交叉成「十字」為底，再用彩色毛線一圈圈纏繞。</li>
+        <li>十字的四個端點，象徵<strong>土、風、水、火</strong>四種自然元素。</li>
+        <li>族人把它放在祭壇上，祈求神明「看顧」、守護所愛之人。</li>
+      </ul>
+      <div style="margin-top:8px">
+        <span class="tag clay">祈福</span><span class="tag fill">守護</span><span class="tag teal">健康長壽</span><span class="tag">無條件的愛</span>
+      </div>
+    </div>
+    <div class="panel art">
+      <svg viewBox="0 0 240 240" width="80%" style="max-width:320px">
+        <g transform="translate(120,120)">
+          <rect x="-100" y="-7" width="200" height="14" rx="7" fill="#A8744B"/>
+          <rect x="-7" y="-100" width="14" height="200" rx="7" fill="#A8744B"/>
+          <text x="0" y="-82" text-anchor="middle" font-size="15" fill="#6B5D4F" font-family="Noto Sans TC">風</text>
+          <text x="86" y="5" text-anchor="middle" font-size="15" fill="#6B5D4F" font-family="Noto Sans TC">火</text>
+          <text x="0" y="96" text-anchor="middle" font-size="15" fill="#6B5D4F" font-family="Noto Sans TC">水</text>
+          <text x="-86" y="5" text-anchor="middle" font-size="15" fill="#6B5D4F" font-family="Noto Sans TC">土</text>
+          <g fill="none" stroke-width="9" stroke-linejoin="round">
+            <polygon points="0,-60 60,0 0,60 -60,0" stroke="#C77B57"/>
+            <polygon points="0,-40 40,0 0,40 -40,0" stroke="#D8A85B"/>
+            <polygon points="0,-20 20,0 0,20 -20,0" stroke="#5E8B86"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="card single">
+    <div class="panel">
+      <div class="eyebrow">意義與關係</div>
+      <h2>一圈一圈，<span class="accent">繞進祝福與守護</span></h2>
+      <p class="lead">墨西哥習俗裡，孩子出生時父親先編好中央的「眼睛」，象徵新生命受到神的眷顧。</p>
+      <div class="box"><div class="h"><span class="ic">👶</span>陪伴成長</div><p>之後每長一歲就多繞一圈，直到孩子五歲——一圈圈累積的，是健康與祝福。</p></div>
+      <div class="box"><div class="h"><span class="ic">❤️</span>世代相傳</div><p>長輩做給孩子、孩子做給長輩，都是把「我守護你、我祝福你」親手編進作品裡。</p></div>
+      <p class="lead" style="margin-top:6px">最適合作為<strong>祖孫共作、代間共融</strong>的活動主題。</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="card">
+    <div class="panel">
+      <div class="eyebrow">材料準備</div>
+      <h2>需要的<span class="accent">材料</span></h2>
+      <ul class="dots">
+        <li><strong>木棒兩根</strong>：冰棒棍、竹筷或細木棒（約 15–20 公分）</li>
+        <li><strong>毛線數色</strong>：粗一點的毛線最好握、好繞</li>
+        <li><strong>白膠</strong>：固定中心（長輩課用白膠比熱熔膠安全）</li>
+        <li><strong>剪刀</strong>，可加<strong>木珠、流蘇</strong>裝飾</li>
+      </ul>
+      <div class="note"><span class="nh">事前準備</span><p>帶失智或手部較弱的長輩時，可先把木棒黏成十字、線頭繞好，讓他們直接從最有成就感的「纏繞」開始。</p></div>
+    </div>
+    <div class="panel art">
+      <svg viewBox="0 0 260 200" width="86%" style="max-width:360px">
+        <rect x="20" y="92" width="120" height="11" rx="5" fill="#A8744B" transform="rotate(-8 80 97)"/>
+        <rect x="60" y="40" width="11" height="120" rx="5" fill="#A8744B" transform="rotate(-8 65 100)"/>
+        <circle cx="180" cy="60" r="26" fill="none" stroke="#C77B57" stroke-width="9"/>
+        <circle cx="210" cy="78" r="20" fill="none" stroke="#5E8B86" stroke-width="8"/>
+        <circle cx="195" cy="100" r="14" fill="none" stroke="#D8A85B" stroke-width="7"/>
+        <circle cx="178" cy="150" r="7" fill="#7C9070"/>
+        <circle cx="198" cy="158" r="7" fill="#C77B57"/>
+        <circle cx="218" cy="150" r="7" fill="#D8A85B"/>
+        <text x="130" y="190" text-anchor="middle" font-size="13" fill="#6B5D4F" font-family="Noto Sans TC">木棒 · 毛線 · 木珠</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="card">
+    <div class="panel">
+      <div class="eyebrow">核心動作</div>
+      <h2>記住這個<span class="accent">口訣</span></h2>
+      <div class="mantra">
+        <div class="m">繞過 → 繞一圈 → 轉下一根</div>
+        <div class="sub">同一個方向，重複到底</div>
+      </div>
+      <p style="margin-top:14px">毛線從木棒<strong>上面跨過去</strong>，再<strong>從下面繞回來一整圈</strong>，然後把整個十字<strong>轉四分之一圈</strong>，對下一根木棒做一樣的事。</p>
+      <div class="note"><span class="nh">沒有「翻面」這個動作</span><p>整個過程<strong>不需要翻面</strong>，只是「繞、轉、繞下一根」。重複下去，中間的菱形「眼睛」就會慢慢長大。</p></div>
+    </div>
+    <div class="panel art">
+      <svg viewBox="0 0 220 220" width="84%" style="max-width:300px">
+        <g transform="translate(110,110)">
+          <!-- 木棒十字 -->
+          <rect x="-90" y="-6" width="180" height="12" rx="6" fill="#D9C9AE"/>
+          <rect x="-6" y="-90" width="12" height="180" rx="6" fill="#D9C9AE"/>
+          <!-- 中心已固定的纏線團（先前繞好的 X 與內圈） -->
+          <g fill="none" stroke-linejoin="round" stroke-linecap="round">
+            <polygon points="0,-26 26,0 0,26 -26,0" stroke="#D8A85B" stroke-width="6"/>
+            <polygon points="0,-16 16,0 0,16 -16,0" stroke="#5E8B86" stroke-width="6"/>
+            <path d="M -10 -10 L 10 10 M 10 -10 L -10 10" stroke="#A85F3E" stroke-width="4"/>
+          </g>
+          <!-- 正在繞的這一圈：貼著中心、繞在上方木棒 -->
+          <path d="M -7 -30 Q 22 -40 7 -30" fill="none" stroke="#C77B57" stroke-width="8" stroke-linecap="round"/>
+          <!-- 轉到下一根：虛線箭頭 -->
+          <path d="M 18 -34 A 50 50 0 0 1 48 -14" fill="none" stroke="#7C9070" stroke-width="5" stroke-dasharray="3 8" stroke-linecap="round"/>
+          <polygon points="48,-14 40,-22 55,-21" fill="#7C9070"/>
+          <text x="44" y="-40" font-size="15" fill="#6B5D4F" font-family="Noto Sans TC">轉</text>
+          <circle r="6" fill="#A85F3E"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="card">
+    <div class="panel">
+      <div class="eyebrow">操作步驟 · 1</div>
+      <h2>從<span class="accent">中心</span>開始</h2>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><div class="tx"><div class="st">交叉成十字</div><p>兩根木棒中點交叉成十字。</p></div></div>
+        <div class="step"><div class="n">2</div><div class="tx"><div class="st">綁牢中心</div><p>毛線在中心斜繞成「X」幾圈綁緊，或點一滴白膠固定。</p></div></div>
+        <div class="step"><div class="n">3</div><div class="tx"><div class="st">開始繞第一根</div><p>線從一根木棒上面跨過、繞一整圈，貼著中心。</p></div></div>
+      </div>
+    </div>
+    <div class="panel art">
+      <svg viewBox="0 0 300 235" width="92%" style="max-width:380px">
+        <g transform="translate(50,95)">
+          <rect x="-34" y="-4" width="68" height="8" rx="4" fill="#A8744B"/>
+          <rect x="-4" y="-34" width="8" height="68" rx="4" fill="#A8744B"/>
+          <text x="0" y="58" text-anchor="middle" font-size="13" fill="#6B5D4F" font-family="Noto Sans TC">① 十字</text>
+        </g>
+        <g transform="translate(150,95)">
+          <rect x="-34" y="-4" width="68" height="8" rx="4" fill="#A8744B"/>
+          <rect x="-4" y="-34" width="8" height="68" rx="4" fill="#A8744B"/>
+          <path d="M -15 -15 L 15 15 M 15 -15 L -15 15" stroke="#C77B57" stroke-width="4.5" stroke-linecap="round"/>
+          <text x="0" y="58" text-anchor="middle" font-size="13" fill="#6B5D4F" font-family="Noto Sans TC">② 綁中心</text>
+        </g>
+        <g transform="translate(250,95)">
+          <rect x="-34" y="-4" width="68" height="8" rx="4" fill="#A8744B"/>
+          <rect x="-4" y="-34" width="8" height="68" rx="4" fill="#A8744B"/>
+          <!-- 中心已固定的小線團 -->
+          <path d="M -8 -8 L 8 8 M 8 -8 L -8 8" stroke="#C77B57" stroke-width="3.5" stroke-linecap="round"/>
+          <!-- 在上面這一根木棒繞一圈：細橢圓貼著木棒 -->
+          <ellipse cx="0" cy="-13" rx="7.5" ry="9" fill="none" stroke="#5E8B86" stroke-width="3.5"/>
+          <text x="0" y="58" text-anchor="middle" font-size="13" fill="#6B5D4F" font-family="Noto Sans TC">③ 繞「一根」一圈</text>
+        </g>
+        <text x="150" y="192" text-anchor="middle" font-size="14" fill="#A85F3E" font-family="Noto Sans TC" font-weight="700">先把中心穩穩固定好</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="card">
+    <div class="panel">
+      <div class="eyebrow">操作步驟 · 2</div>
+      <h2>一直繞，<span class="accent">眼睛長大</span></h2>
+      <div class="steps">
+        <div class="step"><div class="n">4</div><div class="tx"><div class="st">轉到下一根</div><p>整個十字轉四分之一圈，對下一根木棒同樣繞一圈。重複「繞、轉」。</p></div></div>
+        <div class="step"><div class="n">5</div><div class="tx"><div class="st">換顏色</div><p>想換色就把新線打結接上，同方向繼續繞，出現彩色花紋。</p></div></div>
+        <div class="step"><div class="n">6</div><div class="tx"><div class="st">收尾與裝飾</div><p>繞到喜歡的大小，打結、剪線、點膠固定，末端加流蘇或木珠，留段線當吊繩。</p></div></div>
+      </div>
+    </div>
+    <div class="panel art">
+      <svg viewBox="0 0 300 220" width="92%" style="max-width:380px">
+        <g transform="translate(80,80)">
+          <rect x="-50" y="-5" width="100" height="9" rx="4" fill="#A8744B"/>
+          <rect x="-5" y="-50" width="9" height="100" rx="4" fill="#A8744B"/>
+          <g fill="none" stroke-width="7" stroke-linejoin="round">
+            <polygon points="0,-40 40,0 0,40 -40,0" stroke="#5E8B86"/>
+            <polygon points="0,-28 28,0 0,28 -28,0" stroke="#C77B57"/>
+            <polygon points="0,-16 16,0 0,16 -16,0" stroke="#D8A85B"/>
+          </g>
+          <text x="0" y="70" text-anchor="middle" font-size="13" fill="#6B5D4F" font-family="Noto Sans TC">④⑤ 繞・換色</text>
+        </g>
+        <g transform="translate(220,80)">
+          <rect x="-50" y="-5" width="100" height="9" rx="4" fill="#A8744B"/>
+          <rect x="-5" y="-50" width="9" height="100" rx="4" fill="#A8744B"/>
+          <g fill="none" stroke-width="7" stroke-linejoin="round">
+            <polygon points="0,-44 44,0 0,44 -44,0" stroke="#7C9070"/>
+            <polygon points="0,-32 32,0 0,32 -32,0" stroke="#D8A85B"/>
+            <polygon points="0,-20 20,0 0,20 -20,0" stroke="#C77B57"/>
+          </g>
+          <line x1="0" y1="44" x2="0" y2="62" stroke="#A85F3E" stroke-width="3"/>
+          <circle cx="0" cy="66" r="5" fill="#D8A85B"/>
+          <text x="0" y="86" text-anchor="middle" font-size="13" fill="#6B5D4F" font-family="Noto Sans TC">⑥ 收尾掛繩</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="card single">
+    <div class="panel" style="align-items:center;text-align:center;">
+      <div class="eyebrow" style="justify-content:center;">跟著影片做</div>
+      <h2>看畫面，<span class="accent">一起繞</span></h2>
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/X53ZXcHoR_c" title="上帝之眼編織教學" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="lead" style="margin-top:14px">不懂語言也沒關係，看圖就會做。可暫停、倒回，跟著長輩的速度走。</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="card single">
+    <div class="panel">
+      <div class="eyebrow">過程 · 怎麼陪伴</div>
+      <h2>過程中，<span class="accent">怎麼陪長輩互動</span></h2>
+      <ul class="dots">
+        <li><strong>放慢、示範一步做一步</strong>，不催促；一次只給一個指令。</li>
+        <li>多用<strong>鼓勵語</strong>：「繞得真好」「這顏色你選得真漂亮」。</li>
+        <li>卡住時<strong>把手放在他手上一起繞</strong>，找回手感再放開。</li>
+        <li>邊做邊<strong>聊天勾回憶</strong>：以前做過手工嗎？這顏色讓你想到什麼？</li>
+        <li>容許「不一樣」——歪一點、鬆一點都沒關係，<strong>參與和開心最重要</strong>。</li>
+      </ul>
+      <div class="note"><span class="nh">核心原則</span><p>不是看他「失去了什麼」，而是看他「還能做到什麼」。長輩玩得開心，就是最好的成果。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="card single">
+    <div class="panel" style="text-align:center;align-items:center;">
+      <div class="eyebrow" style="justify-content:center;">結束 · 怎麼收尾</div>
+      <h2>完成之後，<span class="accent">這樣收尾</span></h2>
+      <div style="width:100%;max-width:560px;text-align:left;">
+        <div class="box"><div class="h"><span class="ic">🏆</span>一起欣賞</div><p>請每位長輩拿起作品，說說最喜歡哪個顏色，給彼此拍拍手。</p></div>
+        <div class="box"><div class="h"><span class="ic">📸</span>賦予意義</div><p>與作品合照，提醒他：這是「守護與祝福」，可以送給想念的家人或孫子。</p></div>
+        <div class="box"><div class="h"><span class="ic">🪢</span>帶走延續</div><p>協助掛上吊繩帶回家，下次見面再問「掛在哪裡了？」延續話題與情感。</p></div>
+      </div>
+      <p class="lead" style="margin-top:16px">一圈一圈繞出的，<br>是手的溫度，也是被看顧的安心。</p>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<div id="dots"></div>
+<nav id="nav">
+  <button id="prev">← 上一頁</button>
+  <span class="cnt" id="cnt">1 / 12</span>
+  <button id="next">下一頁 →</button>
+</nav>
+<div class="kbd-hint">← → 鍵也可翻頁</div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+const dots=document.getElementById('dots');
+const cnt=document.getElementById('cnt');
+const prev=document.getElementById('prev');
+const next=document.getElementById('next');
+let i=0;
+slides.forEach((_,n)=>{const d=document.createElement('i');d.onclick=()=>go(n);dots.appendChild(d);});
+const dotEls=[...dots.children];
+function go(n){
+  i=Math.max(0,Math.min(slides.length-1,n));
+  slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+  dotEls.forEach((d,k)=>d.classList.toggle('on',k===i));
+  cnt.textContent=(i+1)+' / '+slides.length;
+  prev.disabled=i===0;next.disabled=i===slides.length-1;
+}
+prev.onclick=()=>go(i-1);
+next.onclick=()=>go(i+1);
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ')go(i+1);
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp')go(i-1);
+});
+let x0=null;
+document.addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+document.addEventListener('touchend',e=>{
+  if(x0===null)return;
+  const dx=e.changedTouches[0].clientX-x0;
+  if(Math.abs(dx)>50)go(i+(dx<0?1:-1));
+  x0=null;
+});
+go(0);
+</script>
+</body>
+</html>
